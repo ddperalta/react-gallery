@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  padding: 20px
+}
+
+.img-element {
+  margin: 10px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 5px;
+  border-color: #ccc;
+}
+
+.img-element:hover {
+  cursor: zoom-in;
+}
+
+.img-title {
+  margin-left: 10px;
+}
+
+.cancel-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  float: right;
+}
+
+.save-btn {
+  margin: 20px;
+  float: right;
+}

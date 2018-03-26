@@ -4,7 +4,8 @@
   "description": "simple image gallery in react",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts build && node server.js",
+    "build": "react-scripts build",
+    "start": "export PUBLIC_URL='/' && react-scripts build && node server.js",
     "test": "mocha --exit"
   },
   "repository": {
@@ -22,16 +23,26 @@
   },
   "homepage": "https://github.com/ddperalta/react-gallery#readme",
   "dependencies": {
+    "base64-img": "^1.0.4",
     "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "jw-react-modal": "^1.0.1",
     "mocha": "^5.0.5",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.2",
+    "popper.js": "^1.14.1",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-scripts": "1.1.1",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-modal-dialog": "^4.0.7",
+    "react-native-image-base64": "^0.1.2",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "xhr": "^2.4.1"
   }
 }
