@@ -1,17 +1,18 @@
 # react-gallery
+
 Sample image gallery in react
 ------
 ## Install dependencies
 ```
-npm install
+yarn install
 ```
 ------
 ## Start server
 ```
-npm start
+yarn start
 ```
 ------
 ## Run tests
 ```
-npm test
+yarn test
 ```
