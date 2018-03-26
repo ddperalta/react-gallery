@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ddperalta/react-gallery#readme",
   "dependencies": {
+    "aws-sdk": "^2.213.1",
     "base64-img": "^1.0.4",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",

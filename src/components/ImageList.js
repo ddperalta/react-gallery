@@ -15,7 +15,7 @@ class ImageList extends Component {
             <img src={i.url} alt={i.title} height="42" width="42" className="img-thumbnail"></img>
             <span className="img-title">{i.title}</span>
           </div>
-          <JwModal id={`img-modal-${n}`}>
+          <JwModal id={`img-modal-${n}`} className="text-center img-modal">
             <img src={i.url} alt={i.title}></img>
             <h1>{i.title}</h1>
             <p>{i.description}</p>

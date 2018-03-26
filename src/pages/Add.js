@@ -33,6 +33,9 @@ class Add extends Component {
   
   save = () => {
     const {description, filename, imageData, title} = this.state;
+    if (!description || !filename || !title) {
+      return;
+    }
     const url = "/images/";
     const opt = {}
     const postData = {
@@ -41,8 +44,11 @@ class Add extends Component {
       imageData,
       title
     };
+    opt.headers = {
+      "Content-Type": "application/json"
+    };
     opt.body = JSON.stringify(postData);
-    const req = xhr.post(url, opt, (err, resp) => {
+    xhr.post(url, opt, (err, resp) => {
       this.props.history.push("/");
     });
   }
@@ -63,6 +69,7 @@ class Add extends Component {
             value={title}
             onChange={this.handleChange}
             placeholder="Image Title" 
+            required
           />
         </div>
         <div class="form-group">
@@ -73,7 +80,8 @@ class Add extends Component {
             id="description" 
             value={description}
             onChange={this.handleChange}
-            placeholder="Image Description" 
+            placeholder="Image Description"
+            required
           />
         </div>
         <div class="custom-file">
@@ -81,7 +89,9 @@ class Add extends Component {
             type="file" 
             accept="image/*"
             class="custom-file-input" 
-            onChange={this.handleFileChange}/>
+            onChange={this.handleFileChange}
+            required
+          />
           <label class="custom-file-label">{fileChooserLabel}</label>
         </div>
         <button className="btn pull-right save-btn" onClick={this.save}>Save</button>
