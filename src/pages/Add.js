@@ -9,7 +9,8 @@ class Add extends Component {
       description: '',
       filename: '',
       imageData: '',
-      title: ''
+      title: '',
+      uploading: false
     };
   }
 
@@ -47,14 +48,16 @@ class Add extends Component {
     opt.headers = {
       "Content-Type": "application/json"
     };
+    this.setState({uploading: true});
     opt.body = JSON.stringify(postData);
     xhr.post(url, opt, (err, resp) => {
+      this.setState({ uploading: false });      
       this.props.history.push("/");
     });
   }
 
   render() {
-    const { title, description, filename } = this.state;
+    const { title, description, filename, uploading } = this.state;
     const fileChooserLabel = filename ? filename : "Choose image";
     return (
       <div className="Add">
@@ -96,6 +99,7 @@ class Add extends Component {
         </div>
         <button className="btn pull-right save-btn" onClick={this.save}>Save</button>
         <NavLink to="/" className="btn btn-primary cancel-btn">Cancel</NavLink>
+        {uploading ? <div class="loader"></div> : null}
       </div>
     );
   }
