@@ -3,12 +3,11 @@ let bodyParser = require('body-parser');
 let path = require("path");
 let db = require('./db.js');
 let app = express();
-let port = 8080;
+let port = process.env.DEFAULT_PORT;
 let AWS = require('aws-sdk');
 
 AWS.config.loadFromPath('./s3_config.json');
-let s3Bucket = new AWS.S3({ params: { Bucket: 'ddperalta-images-prod' } });
-const BUCKET_URL_BASE = "https://s3.us-east-2.amazonaws.com/ddperalta-images-prod/";
+let s3Bucket = new AWS.S3({ params: { Bucket: process.env.S3_BUCKET } });
 app.use("/static", express.static(__dirname + '/build/static'));
 app.get("/", (req, res) => res.sendFile(path.join(__dirname + "/build/index.html")));
 
@@ -42,7 +41,7 @@ app.post("/images/", (req, res) => {
       console.log('Error uploading data: ', data);
     }
   });
-  const url = `${BUCKET_URL_BASE}${keyname}`
+  const url = `${process.env.BUCKET_URL_BASE}${keyname}`
   db.connection.query(
     `INSERT INTO images (title, description, url) VALUES ("${title}", "${description}", "${url}")`, (err, result) => {
       return res.json(result);
